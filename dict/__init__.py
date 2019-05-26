@@ -88,29 +88,25 @@ class Dict:
             except KeyError:
                 phrase = 'None'
 
-            print('\033[1;31m################################### \033[0m')
-            print('\033[1;31m# \033[0m {0} {1}'.format(
+            print('{0} {1}'.format(
                 self.content['query'], self.content['translation'][0]))
             if u != 'None':
-                print('\033[1;31m# \033[0m (U: {0} E: {1})'.format(u, e))
+                print('(U: {0} E: {1})'.format(u, e))
             elif c != 'None':
-                print('\033[1;31m# \033[0m (Pinyin: {0})'.format(c))
+                print('(Pinyin: {0})'.format(c))
             else:
-                print('\033[1;31m# \033[0m')
-
-            print('\033[1;31m# \033[0m')
+                pass
 
             if explains != 'None':
                 for i in range(0, len(explains)):
-                    print('\033[1;31m# \033[0m {0}'.format(explains[i]))
+                    print('{0}'.format(explains[i]))
             else:
-                print('\033[1;31m# \033[0m Explains None')
+                print('Explains None')
 
-            print('\033[1;31m# \033[0m')
 
             if phrase != 'None':
                 for p in phrase:
-                    print('\033[1;31m# \033[0m {0} : {1}'.format(
+                    print('{0} : {1}'.format(
                         p['key'], p['value'][0]))
                     if len(p['value']) > 0:
                         if re.match('[ \u4e00 -\u9fa5]+', p['key']) is None:
@@ -118,10 +114,9 @@ class Dict:
                         else:
                             blank = len(p['key'])
                         for i in p['value'][1:]:
-                            print('\033[1;31m# \033[0m {0} {1}'.format(
+                            print('{0} {1}'.format(
                                 ' ' * (blank + 3), i))
 
-            print('\033[1;31m################################### \033[0m')
             # Phrase
             # for i in range(0, len(self.content['web'])):
             #     print self.content['web'][i]['key'], ':'
